@@ -10,7 +10,8 @@ import { RemovedComponent } from './removed.component';
 const routes: Routes = [
   { path: '', component: AllComponent },
   { path: 'favorite', component: FavoriteComponent },
-  { path: 'removed', component: RemovedComponent }
+  { path: 'removed', component: RemovedComponent },
+  { path: '**', redirectTo: ''}
 ]
 
 @NgModule({
