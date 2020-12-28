@@ -1,0 +1,33 @@
+<aside class="side-navigation">
+  <nav class="side-navigation__nav" [ngClass]="{hidden: !isMenuOpen}">
+    <div class="nav-wrapper">
+      <div class="nav-header">
+        <h2>Список эмодзи</h2>
+      </div>
+      <div class="nav-content">
+        <a routerLink=""
+           routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          Все
+        </a>
+        <a routerLink="/favorite"
+           routerLinkActive="active">
+          Любимые
+        </a>
+        <a routerLink="/removed"
+           routerLinkActive="active">
+          Удаленные
+        </a>
+      </div>
+      <div class="nav-footer">
+        <p>© 2020, Ландик Борислав</p>
+      </div>
+    </div>
+  </nav>
+  <button class="side-navigation__button" (click)="menuClick()">
+    <div class="icon-burger" [ngClass]="{close: isMenuOpen}">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+</aside>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AllComponent } from './all.component';
 import { FavoriteComponent } from './favorite.component';
 import { RemovedComponent } from './removed.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 const routes: Routes = [
   { path: '', component: AllComponent },
@@ -16,7 +17,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, AllComponent, FavoriteComponent, RemovedComponent
+    AppComponent, AllComponent, FavoriteComponent, RemovedComponent, NavigationComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes)

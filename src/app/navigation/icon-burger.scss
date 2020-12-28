@@ -1,0 +1,131 @@
+@import '~src/styles';
+
+.icon-burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  span {
+    display: block;
+    width: 70%;
+    height: 4px;
+    margin-bottom: 6px;
+
+    position: relative;
+    top: 0;
+
+    background-color: $main-color;
+    border-radius: 4px;
+
+    &:nth-child(1) {
+      animation: ease $animation-duration top-span-rev forwards;
+    }
+
+    &:nth-child(2) {
+      animation: ease $animation-duration central-span-rev forwards;
+    }
+
+    &:nth-child(3) {
+      animation: ease $animation-duration bottom-span-rev forwards;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.close span {
+    &:nth-child(1) {
+      animation: ease $animation-duration top-span forwards;
+    }
+
+    &:nth-child(2) {
+      animation: ease $animation-duration central-span forwards;
+    }
+
+    &:nth-child(3) {
+      animation: ease $animation-duration bottom-span forwards;
+    }
+  }
+}
+
+@keyframes top-span {
+  0% {
+    top: 0;
+    transform: rotate(0);
+  }
+  50% {
+    top: 10px;
+    transform: rotate(0);
+  }
+  100% {
+    top: 10px;
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes top-span-rev {
+  0% {
+    top: 10px;
+    transform: rotate(45deg);
+  }
+  50% {
+    top: 10px;
+    transform: rotate(0);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0);
+  }
+}
+
+@keyframes central-span {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes central-span-rev {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bottom-span {
+  0% {
+    top: 0;
+    transform: rotate(0);
+  }
+  50% {
+    top: -10px;
+    transform: rotate(0);
+  }
+  100% {
+    top: -10px;
+    transform: rotate(-45deg);
+  }
+}
+
+@keyframes bottom-span-rev {
+  0% {
+    top: -10px;
+    transform: rotate(-45deg);
+  }
+  50% {
+    top: -10px;
+    transform: rotate(0);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0);
+  }
+}

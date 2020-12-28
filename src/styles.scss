@@ -1,5 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+$text-main-color: #252525;
+$text-secondary-color: #ffffff;
+$main-color: #ffffff;
+$secondary-color: #252525;
+$gray-color: #c7c7c7;
+
+$animation-duration: 300ms;
+
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input, button {
+  border: 0;
+  background: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: $text-main-color;
+  text-decoration: none;
+}
+
 body {
   font-family: Roboto, sans-serif;
+  color: $text-main-color;
 }
