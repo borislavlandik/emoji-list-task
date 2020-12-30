@@ -1,6 +1,6 @@
 export class EmojiModel {
-  name: string;
-  url: string;
+  readonly name: string;
+  readonly url: string;
   isDeleted: boolean;
   isFavorite: boolean;
 
@@ -9,14 +9,6 @@ export class EmojiModel {
     this.url = url;
     this.isFavorite = false;
     this.isDeleted = false;
-  }
-
-  setIsFavorite(value: boolean): void {
-    this.isFavorite = value;
-  }
-
-  setIsDeleted(value: boolean): void {
-    this.isDeleted = value;
   }
 }
 

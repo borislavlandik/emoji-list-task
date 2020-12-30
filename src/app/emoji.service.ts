@@ -1,23 +1,25 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { EmojiModel } from './emoji.model'
+import { map } from 'rxjs/operators';
+import {BehaviorSubject, Observable} from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class EmojiService {
-  constructor(private http: HttpClient) {}
+  private emojisList: EmojiModel[];
+  private emojisSource = new BehaviorSubject<EmojiModel[]>([]);
+  public emojis: Observable<EmojiModel[]> = this.emojisSource.asObservable();
 
-  public async getEmojis(): Promise<EmojiModel[]> {
-    let list: EmojiModel[] = [];
-    let emojiObject: Object = await this.getEmojiObject();
-
-    for (let emoji in emojiObject) {
-      list.push(new EmojiModel(emoji, emojiObject[emoji]))
-    }
-
-    return list;
-  }
-
-  private getEmojiObject(): Promise<Object> {
-    return this.http.get('https://api.github.com/emojis').toPromise();
+  constructor(private http: HttpClient) {
+    this.http.get('https://api.github.com/emojis').pipe(map(data => {
+      return Object.entries(data).map(element => {
+        return new EmojiModel(element[0], element[1]);
+      });
+    })).subscribe(data => {
+      this.emojisList = data;
+      this.emojisSource.next(this.emojisList);
+    });
   }
 }
