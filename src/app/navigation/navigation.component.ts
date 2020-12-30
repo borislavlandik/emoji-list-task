@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class NavigationComponent {
-  isMenuOpen: boolean = true;
+  isMenuOpen: boolean = false;
 
   menuClick() {
     this.isMenuOpen = !this.isMenuOpen;
