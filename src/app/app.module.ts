@@ -10,6 +10,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EmojiService } from './emoji.service';
+import { PopoverComponent } from './popover/popover.component';
 
 const routes: Routes = [
   { path: '', component: AllComponent },
@@ -20,7 +21,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, AllComponent, FavoriteComponent, RemovedComponent, NavigationComponent
+    AppComponent, AllComponent, FavoriteComponent, RemovedComponent, NavigationComponent, PopoverComponent
   ],
     imports: [
         BrowserModule, RouterModule.forRoot(routes), HttpClientModule, FormsModule
