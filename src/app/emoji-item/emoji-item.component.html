@@ -1,0 +1,16 @@
+<div class="emoji-item">
+  <p class="emoji-item__text">
+    <span class="emoji-item__name">{{emoji.name}}</span> <span class="emoji-item__url">{{emoji.url}}</span>
+  </p>
+
+  <div class="emoji-item__preview">
+    <app-popover>
+      <img element width="25" height="25" alt="{{emoji.name}}" src="{{emoji.url}}">
+      <img content width="64" height="64" alt="{{emoji.name}}" src="{{emoji.url}}">
+    </app-popover>
+  </div>
+
+  <div class="emoji-item__actions">
+    <ng-content select="[actions]"></ng-content>
+  </div>
+</div>
