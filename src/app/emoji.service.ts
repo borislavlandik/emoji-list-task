@@ -19,7 +19,49 @@ export class EmojiService {
       });
     })).subscribe(data => {
       this.emojisList = data;
+
+      let favorite = JSON.parse(localStorage.getItem('favorite')) || [];
+      let deleted = JSON.parse(localStorage.getItem('deleted')) || [];
+
+      for(let emoji of this.emojisList) {
+        if(favorite.includes(emoji.name)) {
+          emoji.isFavorite = true;
+        }
+
+        if(deleted.includes(emoji.name)) {
+          emoji.isDeleted = true;
+        }
+      }
+
       this.emojisSource.next(this.emojisList);
     });
+  }
+
+  private static updateLocalStorage(value: boolean, name: string, key: string): void {
+    let array = JSON.parse(localStorage.getItem(key)) || [];
+
+    if(value) {
+      array.push(name);
+    } else {
+      array.splice(array.indexOf(name), 1);
+    }
+
+    localStorage.setItem(key, JSON.stringify(array));
+  }
+
+  setDeleted(name: string, value: boolean) {
+    let emoji: EmojiModel = this.emojisList.find(item => item.name === name);
+    emoji.isDeleted = value;
+    EmojiService.updateLocalStorage(value, emoji.name, 'deleted');
+
+    this.emojisSource.next(this.emojisList);
+  }
+
+  setFavorite(name: string, value: boolean) {
+    let emoji: EmojiModel = this.emojisList.find(item => item.name === name);
+    emoji.isFavorite = value;
+    EmojiService.updateLocalStorage(value, emoji.name, 'favorite');
+
+    this.emojisSource.next(this.emojisList);
   }
 }
