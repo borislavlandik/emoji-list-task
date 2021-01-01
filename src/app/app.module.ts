@@ -11,6 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EmojiService } from './emoji.service';
 import { PopoverComponent } from './popover/popover.component';
+import { EmojiItemComponent } from './emoji-item/emoji-item.component';
+import { SearchBoxComponent } from './search-box/search-box.component';
+
+import { FilterPipe } from './filter.pipe';
 
 const routes: Routes = [
   { path: '', component: AllComponent },
@@ -21,7 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent, AllComponent, FavoriteComponent, RemovedComponent, NavigationComponent, PopoverComponent
+    AppComponent, AllComponent, FavoriteComponent, RemovedComponent, NavigationComponent, PopoverComponent, EmojiItemComponent, SearchBoxComponent, FilterPipe
   ],
     imports: [
         BrowserModule, RouterModule.forRoot(routes), HttpClientModule, FormsModule
