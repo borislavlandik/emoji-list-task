@@ -7,7 +7,7 @@ import {EmojiService} from './emoji.service';
   template: `
     <header class="header">
       <h1 class="header__title">Удаленные</h1>
-      <app-search-box (onInput)="filter = $event"></app-search-box>
+      <app-search-box class="header__search" (onInput)="filter = $event"></app-search-box>
     </header>
     <ng-container *ngFor="let emoji of emojis | filter:'name':filter.toLowerCase(); index as i; trackBy: trackBy">
       <app-emoji-item [emoji]="emoji" *ngIf="emoji.isDeleted">
