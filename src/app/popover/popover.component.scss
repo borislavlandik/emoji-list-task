@@ -20,8 +20,9 @@
 
     position: absolute;
     top: calc(100% - 10px);
-    left: 0;
+    left: calc(-100% - 10px);
     z-index: 2;
+    overflow: hidden;
 
     background-color: $secondary-color;
     border-radius: 5px;
