@@ -11,4 +11,10 @@
   padding: 25px 15px;
 }
 
+@media screen and (max-width: $extra-small-tablet) {
+  .main-content {
+    margin-left: 0;
+  }
+}
+
 
