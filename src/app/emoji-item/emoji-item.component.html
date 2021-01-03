@@ -1,13 +1,13 @@
 <div class="emoji-item">
   <div class="emoji-item__text">
     <p class="emoji-item__name">{{emoji.name}}</p>
-    <p class="emoji-item__url">{{emoji.url}}</p>
+    <a [href]="emoji.url" class="emoji-item__url">{{emoji.url}}</a>
   </div>
 
   <div class="emoji-item__preview">
     <app-popover>
-      <img element width="25" height="25" alt="{{emoji.name}}" src="{{emoji.url}}">
-      <img content width="64" height="64" alt="{{emoji.name}}" src="{{emoji.url}}">
+      <img element width="25" height="25" [alt]="emoji.name" [src]="emoji.url">
+      <img content width="64" height="64" [alt]="emoji.name" [src]="emoji.url">
     </app-popover>
   </div>
 

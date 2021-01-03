@@ -3,16 +3,19 @@
 .emoji-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 40px;
   padding: 5px 10px;
   margin-top: 10px;
+
+  position: relative;
 
   border: 1px solid $secondary-color;
   border-radius: 5px;
 
   &__text {
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
   }
 
   &__name {
@@ -26,11 +29,16 @@
 
   &__url {
     display: inline-block;
-    width: 870px;
+    width: 830px;
 
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__preview {
@@ -40,5 +48,70 @@
 
   &__actions {
     display: inline-block;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .emoji-item {
+    &__text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__url {
+      width: 640px;
+    }
+  }
+}
+
+@media screen and (max-width: $small-tablet) {
+  .emoji-item {
+    &__url {
+      width: 390px;
+    }
+  }
+}
+
+@media screen and (max-width: $extra-small-tablet) {
+  .emoji-item {
+    &__name {
+      width: 290px;
+    }
+
+    &__url {
+      width: 290px;
+
+      overflow: visible;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .emoji-item {
+    &__name {
+      width: 200px;
+    }
+
+    &__url {
+      width: 100%;
+      padding-right: 5px;
+
+      word-break: break-all;
+    }
+
+    &__preview {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+    }
+
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      margin: 0 10px;
+      padding-top: 30px;
+    }
   }
 }
